@@ -19,7 +19,7 @@ function sum(a,b,func){
 
 sum(2,3,display)
  */
-let display = result => console.log(result);
+/* let display = result => console.log(result);
 function sum(a,b,disp){
     disp(a+b);
 }
@@ -31,3 +31,25 @@ function operations(a,b){
     sub(a,b,display);
 }
 operations(3,2);
+ */
+
+function add(a,b,callback){
+    callback(a+b,false);
+}
+function sub(sum,a,callback){
+    callback(sum-a,false);
+}
+function multiply(diff,a,callback){
+    callback(diff*a,false);
+}
+add(2,4,function(result,error){
+    if(!error){
+        sub(result,2,function(result1,error){
+            if(!error){
+                multiply(result1,5,function(result2,error){
+                    console.log("Result of arith operations"+result2);
+                });
+            }
+        });
+    }
+});
